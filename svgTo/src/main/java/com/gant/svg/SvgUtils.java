@@ -43,8 +43,8 @@ public class SvgUtils {
 		}
 	}
 
-	public static void convert2Png(Document document, File jpgFile) throws IOException, TranscoderException {
-		OutputStream out = new BufferedOutputStream(new FileOutputStream(jpgFile));
+	public static void convert2Png(Document document, File pngFile) throws IOException, TranscoderException {
+		OutputStream out = new BufferedOutputStream(new FileOutputStream(pngFile));
 		convert2Png(document, out);
 	}
 
@@ -64,10 +64,10 @@ public class SvgUtils {
 		Document doc = svg.createSvgDoc(uri);
 		NodeList nodes = svg.getNodes(doc);
 		svg.removeNodes(nodes);
-		File jpg = new File(pngFilePath);
+		File png = new File(pngFilePath);
 		try {
-			jpg.createNewFile();
-			SvgUtils.convert2Png(doc, jpg);
+			png.createNewFile();
+			SvgUtils.convert2Png(doc, png);
 		} catch (IOException e) {
 			e.printStackTrace();
 		} catch (TranscoderException e) {
