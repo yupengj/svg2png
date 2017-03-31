@@ -9,9 +9,8 @@ import org.w3c.dom.Document;
 import org.w3c.dom.NodeList;
 
 public class SvgTest {
-
-	public static String PATH = "N:\\workspace\\svgTo\\src\\main\\resources\\source.svg";
-	public static String PRINT_PARH = "N:\\workspace\\svgTo\\src\\main\\resources\\source1.svg";
+	public static String PATH = "C:\\Users\\gant\\git\\svgTo\\svgTo\\src\\main\\resources\\source.svg";
+	public static String PRINT_PARH = "C:\\Users\\gant\\git\\svgTo\\svgTo\\src\\main\\resources\\target.png";
 	public String uri = null;
 	public Svg svg = null;
 	
@@ -45,7 +44,7 @@ public class SvgTest {
 	
 	@Test
 	public void testPrintSvgFile() throws IOException{
-		Document doc = svg.createSvgDoc(uri);
+		Document doc = svg.createSvgDoc(PATH);
 		NodeList nodes = svg.getNodes(doc);
 		svg.removeNodes(nodes);
 		
