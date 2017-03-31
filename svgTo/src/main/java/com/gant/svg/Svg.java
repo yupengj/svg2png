@@ -1,8 +1,6 @@
 package com.gant.svg;
 
 import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.OutputStreamWriter;
@@ -19,6 +17,18 @@ import org.w3c.dom.NodeList;
 
 public class Svg {
 
+	private static String NODE_VALUE = ""; ;
+	
+	static{
+		Properties prop = new Properties();
+		try {
+			prop.load(Svg.class.getResource("/config.properties").openStream());
+			NODE_VALUE = prop.getProperty("node_value");
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+	
 	public Document createSvgDoc(String uri) {
 		String parser = XMLResourceDescriptor.getXMLParserClassName();
 		SAXSVGDocumentFactory f = new SAXSVGDocumentFactory(parser);
@@ -44,23 +54,10 @@ public class Svg {
 			if (node.hasChildNodes()) {
 				removeNodes(node.getChildNodes());
 			}
-			if (getNodeValue().equals(node.getNodeValue())) {
+			if (NODE_VALUE.equals(node.getNodeValue())) {
 				node.getParentNode().removeChild(node);
 			}
 		}
-	}
-
-	public String getNodeValue() {
-		String value = "";
-		Properties prop = new Properties();
-		try {
-			prop.load(Svg.class.getResource("/config.properties").openStream());
-			value = prop.getProperty("node_value");
-//			value+=" ";
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-		return value;
 	}
 
 	public void readNodes(NodeList nodes) {
@@ -69,12 +66,6 @@ public class Svg {
 			if (node.hasChildNodes()) {
 				readNodes(node.getChildNodes());
 			}
-
-//			String nodeName = node.getNodeName();
-//			String nodeValue = node.getNodeValue();
-			//System.out.println(i + " name:" + nodeName + " value:" + nodeValue);
-			//System.out.println();
-
 		}
 	}
 
