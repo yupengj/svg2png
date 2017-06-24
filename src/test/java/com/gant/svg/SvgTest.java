@@ -13,43 +13,43 @@ public class SvgTest {
 	public static String PRINT_PARH = "C:\\Users\\gant\\git\\svgTo\\svgTo\\src\\main\\resources\\target.png";
 	public String uri = null;
 	public Svg svg = null;
-	
+
 	@Before
-	public void beforeTest(){
+	public void beforeTest() {
 		File file = new File(PATH);
 		uri = file.toURI().toString();
 		svg = new Svg();
 	}
-	
+
 	@Test
-	public void testCreateSvg(){
+	public void testCreateSvg() {
 		Document dom = svg.createSvgDoc(uri);
 		System.out.println(dom);
 	}
-	
+
 	@Test
-	public void testGetNodes(){
+	public void testGetNodes() {
 		Document doc = svg.createSvgDoc(uri);
 		NodeList nodes = svg.getNodes(doc);
 		svg.readNodes(nodes);
 	}
-	
-	@Test 
-	public void testRemoveNodes(){
+
+	@Test
+	public void testRemoveNodes() {
 		Document doc = svg.createSvgDoc(uri);
 		NodeList nodes = svg.getNodes(doc);
 		svg.removeNodes(nodes);
 		svg.readNodes(nodes);
 	}
-	
+
 	@Test
-	public void testPrintSvgFile() throws IOException{
+	public void testPrintSvgFile() throws IOException {
 		Document doc = svg.createSvgDoc(PATH);
 		NodeList nodes = svg.getNodes(doc);
 		svg.removeNodes(nodes);
-		
-		//svg.readNodes(svg.getNodes(doc));
-		
+
+		// svg.readNodes(svg.getNodes(doc));
+
 		svg.printSvgFile(PRINT_PARH, doc);
 	}
 }
