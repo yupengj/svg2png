@@ -1,0 +1,25 @@
+// Apply the java plugin to add support for Java
+
+apply plugin: 'java'
+apply plugin: 'application'
+mainClassName = 'com.gant.svg.Main'
+
+repositories {
+	//	mavenLocal()
+	jcenter();
+	//	mavenCentral()
+}
+
+jar {
+}
+
+// In this section you declare the dependencies for your production and test code
+dependencies {
+	compile 'org.slf4j:slf4j-api:1.7.21'
+	compile 'org.dom4j:dom4j:2.0.0'
+	compile 'org.apache.xmlgraphics:batik-transcoder:1.8'
+	compile 'org.apache.xmlgraphics:fop:2.1'
+	compile 'org.apache.xmlgraphics:batik-codec:1.8'
+	
+	testCompile 'junit:junit:4.12'
+}
