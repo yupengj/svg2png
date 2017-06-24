@@ -42,7 +42,8 @@ public class Main {
 	public static void convert(String filePath, String fileName) {
 		String uri = filePath + "\\" + fileName;
 		String pngFilePath = filePath + "\\" + fileName.replace(".svg", ".png");
-		
+		File file = new File(uri);
+		uri = file.toURI().toString();
 		try {
 			SvgUtils.removeWatermarkToPng(uri, pngFilePath);
 		} catch (Exception e) {
