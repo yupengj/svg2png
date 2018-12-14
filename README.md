@@ -13,5 +13,3 @@ svg 文件去掉水印后转成 png 文件. 水印可配置
 ## 注意
 
 **JDK 版本最低要求为1.8**
-=======
->>>>>>> branch 'master' of https://github.com/yupengj/svg2png.git
