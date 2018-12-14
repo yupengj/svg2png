@@ -9,8 +9,8 @@ import org.w3c.dom.Document;
 import org.w3c.dom.NodeList;
 
 public class SvgTest {
-	public static String PATH = "C:\\Users\\gant\\git\\svgTo\\svgTo\\src\\main\\resources\\source.svg";
-	public static String PRINT_PARH = "C:\\Users\\gant\\git\\svgTo\\svgTo\\src\\main\\resources\\target.png";
+	public static String PATH = "D:\\git\\svgTo\\svgTo\\src\\main\\resources\\source.svg";
+	public static String PRINT_PARH = "D:\\git\\svgTo\\svgTo\\src\\main\\resources\\target.png";
 	public String uri = null;
 	public Svg svg = null;
 
