@@ -20,8 +20,5 @@ dependencies {
 	compile 'org.apache.xmlgraphics:batik-transcoder:1.8'
 	compile 'org.apache.xmlgraphics:fop:2.1'
 	compile 'org.apache.xmlgraphics:batik-codec:1.8'
-	
-	compile 'org.activiti:activiti-engine:7.0.0.Beta4'
-	
 	testCompile 'junit:junit:4.12'
 }
